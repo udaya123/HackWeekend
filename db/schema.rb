@@ -11,21 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160730173220) do
 
-||||||| merged common ancestors
-<<<<<<<<< Temporary merge branch 1
 ActiveRecord::Schema.define(version: 20160730172446) do
-||||||||| merged common ancestors
-ActiveRecord::Schema.define(version: 20160730164141) do
-=========
-ActiveRecord::Schema.define(version: 20160730173220) do
->>>>>>>>> Temporary merge branch 2
 
-=======
-ActiveRecord::Schema.define(version: 20160730172446) do
->>>>>>> 1f492e55db5a5cfa687355d8daee3fb531085bd1
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
