@@ -6,6 +6,8 @@ gem 'awesome_print'
 gem 'bootstrap-sass', '~> 3.3.6'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
+# Add devise for authentification
+gem 'devise'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
