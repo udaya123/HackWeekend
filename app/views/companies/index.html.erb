@@ -12,7 +12,7 @@
   </thead>
 
   <tbody>
-    <% @companies.each do |company| %>
+    <% current_user.companies.each do |company| %>
       <tr>
         <td><%= image_tag company.logo.url(:thumb) %><td>
         <td><%= company.name %></td>
