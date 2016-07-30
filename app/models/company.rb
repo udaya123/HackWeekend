@@ -7,7 +7,7 @@ class Company < ActiveRecord::Base
   	applied => 50, 
   	asked_for_coffee => 100,
   	got_coffee => 150,
-  	viewed space => 50,
+  	viewed_space => 50,
   	interviewed => 200,
   	got_offer => 300
   }
