@@ -1,14 +1,6 @@
 Rails.application.routes.draw do
-
-
-  root to: 'companies#index'
-  
-  root to: 'pages#index'
-
-
+ root to: 'pages#index'
   devise_for :users
-
-
   resources :contacts
   resources :companies
 
