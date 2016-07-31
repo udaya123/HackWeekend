@@ -12,6 +12,14 @@ class CompaniesController < ApplicationController
   def show
   end
 
+  def add_score
+    @company = Company.find(params[:company])
+    @company.points = params[:milestone_points]
+    @company.save!
+    #raise error
+    redirect_to companies_path
+  end
+
   # GET /companies/new
   def new
     @company = Company.new

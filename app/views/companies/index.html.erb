@@ -30,14 +30,14 @@
               Milestones <span class="glyphicon glyphicon-triangle-bottom"></span>
               </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">Interested</a><br>
-              <a class="dropdown-item" href="#">Contacted</a><br>
-              <a class="dropdown-item" href="#">Set Up Meeting</a><br>
-              <a class="dropdown-item" href="#">Got Coffee</a><br>
-              <a class="dropdown-item" href="#">Followed Up </a><br>
-              <a class="dropdown-item" href="#">Applied</a><br>
-              <a class="dropdown-item" href="#">Interviewing</a><br>
-              <a class="dropdown-item" href="#">Got Offer</a>
+              <%= link_to 'Interested', {:controller => "companies", :action => 'add_score', :company => company.id, :milestone_points =>0} %>
+              <%= link_to 'Contacted', {:controller => "companies", :action => 'add_score', :company => company.id, :milestone_points =>14} %>
+              <%= link_to 'Set Up Meeting', {:controller => "companies", :action => 'add_score', :company => company.id, :milestone_points =>28} %>
+              <%= link_to 'Got Coffee', {:controller => "companies", :action => 'add_score', :company => company.id, :milestone_points =>43} %>
+              <%= link_to 'Followed Up', {:controller => "companies", :action => 'add_score', :company => company.id, :milestone_points =>57} %>
+              <%= link_to 'Applied', {:controller => "companies", :action => 'add_score', :company => company.id, :milestone_points =>71} %>
+              <%= link_to 'Interviewing', {:controller => "companies", :action => 'add_score', :company => company.id, :milestone_points =>86} %>
+              <%= link_to 'Got Offer', {:controller => "companies", :action => 'add_score', :company => company.id, :milestone_points =>100} %>
             </div>
           </div>
       </div>

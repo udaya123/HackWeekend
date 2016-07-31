@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :companies do
     resources :contacts, only: [:index, :new, :create]
   end
+  get 'companies/company/milestone_points' => 'companies#add_score' 
   resources :contact, only: [:show, :edit, :update, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
