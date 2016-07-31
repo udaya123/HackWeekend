@@ -5,25 +5,31 @@
 <%= link_to 'New Company', new_company_path %>
 
 <div class="container">
-  <div class="row">
-    <% current_user.companies.each do |company| %>
-    <div class='container'>
-      <% if company.logo_file_name == nil %>
-        <h3><%= company.name %></h3>
-      <% else %>
-        <%= image_tag company.logo.url(:thumb) %>
-      <% end %>
-  </div>
-  <div class="row">
-  <div class='container'>
-      <%= company.points %>
-      <%= link_to 'Edit', edit_company_path(company) %>
-      <%= link_to 'Add Contact', new_company_contact_path(company.id) %>
-        <div class="dropdown closed">
-            <a class="btn btn-default btn-sm dropdown-toggle" href="http://example.com" id="dropdownMenuLink" data-target="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Milestones <span class="glyphicon glyphicon-triangle-bottom"></span>
-            </a>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+  <div class='col-sm-8'>
+      <% current_user.companies.each do |company| %>
+      <div class="row">
+      <div class='container'>
+        <% if company.logo_file_name == nil %>
+          <h3><%= company.name %></h3>
+        <% else %>
+          <%= image_tag company.logo.url(:thumb) %>
+        <% end %>
+    </div>
+    <div class="row">
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="<%=company.points%>" aria-valuemin="0" aria-valuemax="100" style="width: <%=company.points%>%">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        <%= company.points %>
+        <%= link_to 'Edit', edit_company_path(company) %>
+        <%= link_to 'Add Contact', new_company_contact_path(company.id) %>
+          <div class="dropdown closed">
+              <a class="btn btn-default btn-sm dropdown-toggle" href="http://example.com" id="dropdownMenuLink" data-target="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Milestones <span class="glyphicon glyphicon-triangle-bottom"></span>
+              </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <a class="dropdown-item" href="#">Interested</a><br>
               <a class="dropdown-item" href="#">Contacted</a><br>
               <a class="dropdown-item" href="#">Set Up Meeting</a><br>
@@ -32,12 +38,13 @@
               <a class="dropdown-item" href="#">Applied</a><br>
               <a class="dropdown-item" href="#">Interviewing</a><br>
               <a class="dropdown-item" href="#">Got Offer</a>
+            </div>
           </div>
-        </div>
-    </div>
-    </div>
-    </div>
-    <% end %>
+      </div>
+      </div>
+      <br>
+      <% end %>
+  </div>
 </div>
 
 <br>
