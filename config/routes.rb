@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :companies do
-    resources :contacts
+    resources :contacts, only: [:index, :new, :create]
   end
+  resources :contact, only: [:show, :edit, :update, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
