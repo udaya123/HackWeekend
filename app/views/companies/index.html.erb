@@ -22,6 +22,11 @@
       </div>
     </div>
     <div class="row">
+      <% company.contacts.each do |contact| %>
+        <%=link_to contact.name, edit_contact_path(contact) %>
+      <%end%>
+    </div>
+    <div class="row">
         <%= company.points %>
         <%= link_to 'Edit', edit_company_path(company) %>
         <%= link_to 'Add Contact', new_company_contact_path(company.id) %>

@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   resources :companies do
     resources :contacts, only: [:index, :new, :create]
   end
-  get 'companies/company/milestone_points' => 'companies#add_score' 
-  resources :contact, only: [:show, :edit, :update, :destroy]
+  get 'companies/company/milestone_points' => 'companies#add_score'
+  resources :contacts, only: [:show, :edit, :update, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
