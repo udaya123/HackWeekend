@@ -12,7 +12,7 @@
   </thead>
 
   <tbody>
-    <% @companies.each do |company| %>
+    <% current_user.companies.each do |company| %>
       <tr>
         <td><%= image_tag company.logo.url(:thumb) %><td>
         <td><%= company.name %></td>
@@ -20,6 +20,7 @@
         <td><%= link_to 'Show', company %></td>
         <td><%= link_to 'Edit', edit_company_path(company) %></td>
         <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Add Contact', new_company_contact_path(company.id) %></td>
       </tr>
     <% end %>
   </tbody>
