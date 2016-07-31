@@ -6,7 +6,7 @@
 
 <div class="container">
   <div class='col-sm-8'>
-      <% current_user.companies.each do |company| %>
+      <% current_user.companies.order(updated_at: :desc).each do |company| %>
       <div class="row">
       <div class='container'>
         <% if company.logo_file_name == nil %>
