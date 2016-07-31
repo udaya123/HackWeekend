@@ -16,7 +16,7 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:company])
     @company.points = params[:milestone_points]
     @company.save!
-    #raise error
+    current_user.total_points
     redirect_to companies_path
   end
 
