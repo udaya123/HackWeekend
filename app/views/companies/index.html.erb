@@ -16,11 +16,11 @@
       <tr>
         <td><%= image_tag company.logo.url(:thumb) %><td>
         <td><%= company.name %></td>
-        <td><%= company.points %></td>
-        <td><%= link_to 'Show', company %></td>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Add Contact', new_company_contact_path(company.id) %></td>
+        <td><%= company.points %></td> <br>
+        <td><%= link_to 'Show', company %></td><br>
+        <td><%= link_to 'Edit', edit_company_path(company) %></td><br>
+        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td><br>
+        <td><%= link_to 'Add Contact',new_company_contact_path(company.id) %></td>
           <td><div class="dropdown closed">
               <a class="btn btn-default btn-sm dropdown-toggle" href="http://example.com" id="dropdownMenuLink" data-target="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Milestones <span class="glyphicon glyphicon-triangle-bottom"></span>
