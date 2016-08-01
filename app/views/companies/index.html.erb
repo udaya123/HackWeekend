@@ -1,6 +1,5 @@
-<p id="notice"><%= notice %></p>
-
 <h1>My Companies</h1>
+<h4>Total Points: <%= current_user.points_total %> </h4>
 <%= link_to 'New Company', new_company_path %>
 
 <div class="container">
@@ -35,10 +34,54 @@
             </div>
     
         </div>
+
+  <div class='col-sm-8'>
+      <% current_user.companies.order(updated_at: :desc).each do |company| %>
+      <div class="row">
+      <div class='container'>
+        <% if company.logo_file_name == nil %>
+          <h3><%= company.name %></h3>
+        <% else %>
+          <%= image_tag company.logo.url(:thumb) %>
+        <% end %>
+
     </div>
+    <div class="row">
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="<%=company.points%>" aria-valuemin="0" aria-valuemax="100" style="width: <%=company.points%>%">
+        <div style='float:left'>Interested</div></div><div style="float:right">Got the job!</div>
       </div>
     </div>
-    <% end %>
+    <div class="row">
+      <% company.contacts.each do |contact| %>
+        <%=link_to contact.name, edit_contact_path(contact) %>
+      <%end%>
+    </div>
+    <div class="row">
+      <div class ="btn-group">
+        <%= link_to 'Edit', edit_company_path(company), class:"btn btn-default btn-sm", type:"button" %>
+        <%= link_to 'Add Contact', new_company_contact_path(company.id), class:"btn btn-default btn-sm", type:"button" %>
+          <div type="button" class="dropdown closed btn-group">
+              <a class="btn btn-default btn-sm dropdown-toggle" href="http://example.com" id="dropdownMenuLink" data-target="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Milestones <span class="glyphicon glyphicon-triangle-bottom"></span>
+              </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li><%= link_to 'Interested', {:controller => "companies", :action => 'add_score', :company => company.id, :milestone_points =>0} %></li>
+              <li><%= link_to 'Contacted', {:controller => "companies", :action => 'add_score', :company => company.id, :milestone_points =>14} %></li>
+              <li><%= link_to 'Set Up Meeting', {:controller => "companies", :action => 'add_score', :company => company.id, :milestone_points =>28} %></li>
+              <li><%= link_to 'Got Coffee', {:controller => "companies", :action => 'add_score', :company => company.id, :milestone_points =>43} %></li>
+              <li><%= link_to 'Followed Up', {:controller => "companies", :action => 'add_score', :company => company.id, :milestone_points =>57} %></li>
+              <li><%= link_to 'Applied', {:controller => "companies", :action => 'add_score', :company => company.id, :milestone_points =>71} %></li>
+              <li><%= link_to 'Interviewing', {:controller => "companies", :action => 'add_score', :company => company.id, :milestone_points =>86} %></li>
+              <li><%= link_to 'Got Offer', {:controller => "companies", :action => 'add_score', :company => company.id, :milestone_points =>100} %></li>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <br>
+      <% end %>
+  </div>
 </div>
 
 <br>
